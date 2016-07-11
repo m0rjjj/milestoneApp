@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+		<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/app.css">
+	</head>
+	<body ng-app="MilestoneApp" layout="column" ng-controller="MainController">
+		
+	    <md-toolbar layout="row" class="md-padding">
+			<md-button ng-click="toggleSidebar()" hide-gt-sm>
+				<md-icon>menu</md-icon>
+			</md-button>
+			<h1>Angular Material - Starter App</h1>
+	    </md-toolbar>
+
+	    <div flex layout="row">
+
+
+	        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 md-padding" md-component-id="sidebarLeft">
+	    		<h2>Filter</h2>
+	    		<div layout="column">
+					<md-input-container>
+						<label>Search</label>
+						<input type="text" ng-model="search.$">
+					</md-input-container>
+					<md-input-container>
+						<md-select ng-model="search.category" placeholder="Select a category">
+							<md-option ng-value="">Select a category</md-option>
+							<md-option ng-repeat="category in categoryList">{{ category.name }}</md-option>	
+						</md-select>
+					</md-input-container>
+					<md-button class="md-raised md-warn" ng-click="search = {}">Clear</md-button>
+	    		</div>
+	        </md-sidenav>
+
+	        <md-content flex id="content">
+				<md-list class="md-offset">
+					<md-list-item class="md-3-line food-list-item" ng-repeat="item in foodItems | filter:search" ng-click="showAdvanced($event, item)">
+						<div class="md-list-item-text">
+								<h3><strong>{{item.title}}</strong></h3>
+								<h4>{{item.category}}</h4>
+								<p>{{item.description}}</p>
+							<md-button class="md-raised md-secondary" ng-click="showEdit($event, item)">Edit</md-button>
+							<md-button class="md-raised md-warn md-secondary" ng-click="showDelete($event, item)">Delete</md-button>
+						</div>
+					</md-list-item>
+				</md-list>
+				<div>
+				</div>
+
+	        </md-content>
+
+	    </div>
+		
+		<script src="node_modules/angular/angular.min.js"></script>
+		<script src="node_modules/angular-resource/angular-resource.min.js"></script>
+		<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+		<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+		<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+		<script src="node_modules/angular-material/angular-material.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/services.js"></script>
+		<script src="app/controllers.js"></script>
+	</body>
+</html>

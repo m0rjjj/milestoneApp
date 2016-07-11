@@ -1,0 +1,12 @@
+<md-list>
+	<md-list-item class="md-2-line" ng-repeat="item in ctrl.searchResult">
+		<a ng-href="#/detail/{{item.id}}">
+			<img class="md-avatar" ng-src="src/images/apple_small.jpg">
+		</a>
+		<div class="md-list-item-text">
+			<h3>{{item.title}}</h3>
+			<p>{{item.description}}</p>
+			<md-button>Detail</md-button>
+		</div>
+	</md-list-item>
+</md-list>

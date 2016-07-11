@@ -1,0 +1,53 @@
+<md-dialog name="itemForm" aria-label="Mango (Fruit)" ng-cloak flex="80">
+	<form ng-submit="submit()">
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>Mango (Fruit)</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon>close</md-icon>	
+				</md-button>
+			</div>
+		</md-toolbar>
+
+	    <md-dialog-content>
+			<div class="md-dialog-content">
+
+				<md-input-container class="md-block">
+					<label>Title</label>
+					<input md-maxlength="30" required="" md-no-asterisk="" name="title" ng-model="item.title">
+					<div ng-messages="projectForm.title.$error">
+						<div ng-message="required">This is required.</div>
+					</div>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Category</label>
+					<md-select ng-model="item.category" required="" placeholder="Select a category">
+						<md-option ng-selected="item.category === category.name" ng-value="category.name" ng-repeat="category in categoryList">{{ category.name }}</md-option>	
+					</md-select>
+					<div ng-messages="projectForm.description.$error">
+						<div ng-message="required">This is required.</div>
+					</div>
+				</md-input-container>
+
+				<md-input-container class="md-block">
+					<label>Description</label>
+					<textarea name="description" ng-model="item.description" required="" md-no-autogrow cols="30" rows="3"></textarea>
+					<div ng-messages="projectForm.description.$error">
+						<div ng-message="required">This is required.</div>
+					</div>
+				</md-input-container>
+
+		</md-dialog-content>
+
+		<md-dialog-actions layout="row">
+			<md-button class="md-raised" ng-disabled="itemForm.$invalid" type="submit">
+				Update
+			</md-button>
+			<md-button class="md-raised md-primary" ng-click="cancel()" type="button">
+				Cancel
+			</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>
