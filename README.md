@@ -7,9 +7,10 @@ Download/clone the repo:
 ```
 git clone https://github.com/m0rjjj/milestoneApp.git
 ```
-Build the project:
+Go to the project directory and run build command:
 
 ```
+cd milestoneApp
 npm install
 ```
 
