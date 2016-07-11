@@ -1,8 +1,20 @@
 # milestoneApp
 Test Project for Mazda Australia
 
-Building the project:
-npm install
+## How to use
 
-Startting the project:
+Download/clone the repo:
+```
+git clone https://github.com/m0rjjj/milestoneApp.git
+```
+Build the project:
+
+```
+npm install
+```
+
+Run the project:
+
+```
 node server.js
+```
